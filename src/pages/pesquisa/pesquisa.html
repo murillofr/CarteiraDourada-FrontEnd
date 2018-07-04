@@ -2,11 +2,11 @@
 
     <ion-card>
         <ion-list>
-            <ion-item-divider color="dark">
+            <ion-item-divider id="dividerNovoVeiculo" color="dark" (click)="hideShowNovoVeiculo()">
                 <ion-icon name="add-circle" item-start></ion-icon>
                 Novo veículo
             </ion-item-divider>
-            <ion-list>
+            <ion-list id="listNovoVeiculo" class="hideNovoVeiculo">
               <ion-item>
                   <ion-icon name="aperture" item-start></ion-icon>
                   <ion-input type="text" placeholder="Modelo"></ion-input>
@@ -22,7 +22,7 @@
                   <ion-input type="text" placeholder="Renavam"></ion-input>
               </ion-item>
               <div class="teste">
-                  <button ion-button color="gold" block  (click)="presentToast()">INCLUIR</button>
+                  <button ion-button color="gold" block (click)="presentToast()">INCLUIR</button>
               </div>
             </ion-list>
         </ion-list>

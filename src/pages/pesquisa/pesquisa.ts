@@ -2,13 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 
-/**
- * Generated class for the PesquisaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-pesquisa',
@@ -26,6 +19,10 @@ export class PesquisaPage {
     console.log('ionViewDidLoad PesquisaPage');
   }
 
+  hideShowNovoVeiculo() {
+    document.getElementById("listNovoVeiculo").classList.toggle("showNovoVeiculo");
+  }
+
   presentToast() {
     let toast = this.toastCtrl.create({
       message: 'VEÍCULO INCLUIDO... OU NÃO',
@@ -39,5 +36,4 @@ export class PesquisaPage {
   
     toast.present();
   }
-
 }

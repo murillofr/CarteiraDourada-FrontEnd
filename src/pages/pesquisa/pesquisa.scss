@@ -1,3 +1,22 @@
 .teste {
     margin: 0 17px 17px 17px;
 }
+
+#dividerNovoVeiculo {
+    cursor: pointer;
+}
+
+.hideNovoVeiculo {
+    height: 0 !important;
+    transition: 0.2s linear;
+}
+
+.platform-ios .showNovoVeiculo {
+    height: 201px !important;
+    transition: 0.2s linear;
+}
+
+.platform-android .showNovoVeiculo {
+    height: 204px !important;
+    transition: 0.2s linear;
+}
