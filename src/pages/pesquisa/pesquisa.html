@@ -1,19 +1,77 @@
 <ion-content class="ion-content-pages">
+
+    <ion-card>
+        <ion-list>
+            <ion-item-divider color="dark">
+                <ion-icon name="add-circle" item-start></ion-icon>
+                Novo veículo
+            </ion-item-divider>
+            <ion-list>
+              <ion-item>
+                  <ion-icon name="aperture" item-start></ion-icon>
+                  <ion-input type="text" placeholder="Modelo"></ion-input>
+              </ion-item>
+            
+              <ion-item>
+                  <ion-icon name="browsers" item-start></ion-icon>
+                  <ion-input type="text" placeholder="Placa"></ion-input>
+              </ion-item>
+        
+              <ion-item>
+                  <ion-icon name="barcode" item-start></ion-icon>
+                  <ion-input type="text" placeholder="Renavam"></ion-input>
+              </ion-item>
+              <div class="teste">
+                  <button ion-button color="gold" block  (click)="presentToast()">INCLUIR</button>
+              </div>
+            </ion-list>
+        </ion-list>
+    </ion-card>
+
   <ion-card>
-
-      <ion-item>
-        <ion-label color="dark" fixed>Placa</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label color="dark" fixed>Renavam</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <button ion-button color="gold" block>PESQUISAR</button>
-      </ion-item>
-
+      <ion-list>
+          <ion-item-divider color="dark">
+              <ion-icon name="car" item-start></ion-icon>
+              Veículo 1
+          </ion-item-divider>
+          <ion-list>
+              <ion-item>
+                  <ion-icon name="aperture" item-start></ion-icon>
+                  Modelo: Celta
+              </ion-item>
+              <ion-item>
+                  <ion-icon name="browsers" item-start></ion-icon>
+                  Placa: GRU2999
+              </ion-item>
+              <ion-item>
+                  <ion-icon name="barcode" item-start></ion-icon>
+                  Renavam: 00462282953
+              </ion-item>
+          </ion-list>
+      </ion-list>
   </ion-card>
+
+  <ion-card>
+      <ion-list>
+          <ion-item-divider color="dark">
+              <ion-icon name="car" item-start></ion-icon>
+              Veículo 2
+          </ion-item-divider>
+          <ion-list>
+              <ion-item>
+                  <ion-icon name="aperture" item-start></ion-icon>
+                  Modelo: Civic
+              </ion-item>
+              <ion-item>
+                  <ion-icon name="browsers" item-start></ion-icon>
+                  Placa: HEE4987
+              </ion-item>
+              <ion-item>
+                  <ion-icon name="barcode" item-start></ion-icon>
+                  Renavam: 45426795431
+              </ion-item>
+          </ion-list>
+      </ion-list>
+  </ion-card>
+
 </ion-content>

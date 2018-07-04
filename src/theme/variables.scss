@@ -54,9 +54,8 @@ $colors: (
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-ion-content {
-  background-color: green;
-}
+$toast-md-background:(#FFD700);
+$toast-md-title-color:(#000000);
 
 
 
