@@ -7,71 +7,50 @@
                 Novo veículo
             </ion-item-divider>
             <ion-list id="listNovoVeiculo" class="hideNovoVeiculo">
-              <ion-item>
-                  <ion-icon name="aperture" item-start></ion-icon>
-                  <ion-input type="text" placeholder="Modelo"></ion-input>
-              </ion-item>
-            
-              <ion-item>
-                  <ion-icon name="browsers" item-start></ion-icon>
-                  <ion-input type="text" placeholder="Placa"></ion-input>
-              </ion-item>
-        
-              <ion-item>
-                  <ion-icon name="barcode" item-start></ion-icon>
-                  <ion-input type="text" placeholder="Renavam"></ion-input>
-              </ion-item>
-              <div class="teste">
-                  <button ion-button color="gold" block (click)="presentToast()">INCLUIR</button>
-              </div>
+                <ion-item>
+                    <ion-icon name="aperture" item-start></ion-icon>
+                    <ion-input type="text" placeholder="Modelo"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-icon name="browsers" item-start></ion-icon>
+                    <ion-input type="text" placeholder="Placa"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-icon name="barcode" item-start></ion-icon>
+                    <ion-input type="text" placeholder="Renavam"></ion-input>
+                </ion-item>
+                <div class="teste">
+                    <button ion-button color="gold" block (click)="exibirToast('VEICULO INCLUIDO... OU NÃO')">
+                        INCLUIR
+                    </button>
+                </div>
             </ion-list>
         </ion-list>
     </ion-card>
 
-  <ion-card>
-      <ion-list>
-          <ion-item-divider color="dark">
-              <ion-icon name="car" item-start></ion-icon>
-              Veículo 1
-          </ion-item-divider>
-          <ion-list>
-              <ion-item>
-                  <ion-icon name="aperture" item-start></ion-icon>
-                  Modelo: Celta
-              </ion-item>
-              <ion-item>
-                  <ion-icon name="browsers" item-start></ion-icon>
-                  Placa: GRU2999
-              </ion-item>
-              <ion-item>
-                  <ion-icon name="barcode" item-start></ion-icon>
-                  Renavam: 00462282953
-              </ion-item>
-          </ion-list>
-      </ion-list>
-  </ion-card>
-
-  <ion-card>
-      <ion-list>
-          <ion-item-divider color="dark">
-              <ion-icon name="car" item-start></ion-icon>
-              Veículo 2
-          </ion-item-divider>
-          <ion-list>
-              <ion-item>
-                  <ion-icon name="aperture" item-start></ion-icon>
-                  Modelo: Civic
-              </ion-item>
-              <ion-item>
-                  <ion-icon name="browsers" item-start></ion-icon>
-                  Placa: HEE4987
-              </ion-item>
-              <ion-item>
-                  <ion-icon name="barcode" item-start></ion-icon>
-                  Renavam: 45426795431
-              </ion-item>
-          </ion-list>
-      </ion-list>
-  </ion-card>
+    <ion-card *ngFor="let veiculo of veiculos">
+        <ion-list>
+            <ion-item-divider color="dark">
+                <ion-icon name="car" item-start></ion-icon>
+                Veículo {{ veiculo.id }}
+            </ion-item-divider>
+            <ion-list>
+                <ion-item>
+                    <ion-icon name="aperture" item-start></ion-icon>
+                    Modelo: {{ veiculo.modelo }}
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="browsers" item-start></ion-icon>
+                    Placa: {{ veiculo.placa }}
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="barcode" item-start></ion-icon>
+                    Renavam: {{ veiculo.renavam }}
+                </ion-item>
+            </ion-list>
+        </ion-list>
+    </ion-card>
 
 </ion-content>

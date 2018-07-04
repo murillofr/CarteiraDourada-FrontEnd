@@ -4,5 +4,11 @@
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "proxies": [
+    {
+      "path": "/carteira-dourada-api",
+      "proxyUrl": "http://localhost:8082"
+    }
+  ]
 }

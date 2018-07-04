@@ -1,16 +1,19 @@
-import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+
 import { MyApp } from './app.component';
+import { HerokuProvider } from '../providers/heroku/heroku';
 
 import { ConquistasPage } from '../pages/conquistas/conquistas';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { PesquisaPage } from '../pages/pesquisa/pesquisa';
 import { TabsPage } from '../pages/tabs/tabs';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { HerokuProvider } from '../providers/heroku/heroku';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { HerokuProvider } from '../providers/heroku/heroku';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -39,4 +44,10 @@ import { HerokuProvider } from '../providers/heroku/heroku';
     HerokuProvider
   ]
 })
-export class AppModule {}
+export class AppModule {
+  public static id: String;
+  public static nome: String;
+  public static email: String;
+  public static cnh: String;
+  public static categoria: String;
+}
