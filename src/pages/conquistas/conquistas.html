@@ -13,11 +13,11 @@
                 </ion-item>
                 <ion-item>
                     <ion-icon name="alert" item-start></ion-icon>
-                    Infrações: 0
+                    Infrações: {{ qtdInfracoes }}
                 </ion-item>
                 <ion-item>
                     <ion-icon name="time" item-start></ion-icon>
-                    Dias sem infrações: 1380 
+                    Dias sem infrações: {{ infracoes }} 
                 </ion-item>
             </ion-list>
         </ion-list>
@@ -32,11 +32,7 @@
             <ion-list>
                 <ion-item>
                     <ion-icon name="logo-usd" item-start></ion-icon>
-                    Seguro: 10% desconto
-                </ion-item>
-                <ion-item>
-                    <ion-icon name="logo-usd" item-start></ion-icon>
-                    DPVAT: 10% desconto
+                    DPVAT: {{ ipva }}% desconto
                 </ion-item>
                 <ion-item>
                     <ion-icon name="logo-usd" item-start></ion-icon>

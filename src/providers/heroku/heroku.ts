@@ -10,6 +10,8 @@ import { AppModule } from '../../app/app.module';
 export class HerokuProvider {
   basepath = "/carteira-dourada-api"
 
+  teste: any = {};
+
   constructor(
     private http: Http,
     public httpClient: HttpClient,
@@ -26,6 +28,18 @@ export class HerokuProvider {
     return response;
   }
 
+  getInfracoesById(id) {
+    var url = `${this.basepath}/infracoes/usuarios/${id}`;
+    var response = this.http.get(url).map(res => res.json());
+    return response;
+  }
+
+  getBonificacoesById(id) {
+    var url = `${this.basepath}/bonificacoes/${id}`;
+    var response = this.http.get(url).map(res => res.json());
+    return response;
+  }
+
   getAllVeiculos() {
     var url = `${this.basepath}/veiculos`;
     var response = this.http.get(url).map(res => res.json());
@@ -34,15 +48,23 @@ export class HerokuProvider {
 
 
   postAddVeiculo(data) {
+
+    this.teste.id = AppModule.id;
+    this.teste.nome = AppModule.nome;
+    this.teste.email = AppModule.email;
+    this.teste.cnh = AppModule.cnh;
+    this.teste.categoria = AppModule.categoria;
+
     var headers = new HttpHeaders('Content-Type:application/json; charset=UTF-8');
     var myData = JSON.stringify({
       modelo: data.modelo,
       placa: data.placa,
       renavam: data.renavam,
-      usuario: AppModule.id
+      usuario: this.teste
     });
+    console.log("myData");
     console.log(myData);
-    return this.httpClient.post(this.basepath + '/answers', myData, { headers: headers });
+    return this.httpClient.post(`${this.basepath}/veiculos`, myData, { headers: headers });
   }
 
 }

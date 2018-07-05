@@ -50,4 +50,5 @@ export class AppModule {
   public static email: String;
   public static cnh: String;
   public static categoria: String;
+  public static infracoes: any;
 }

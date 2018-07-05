@@ -5,7 +5,8 @@ import {
   NavController, 
   NavParams,
   LoadingController,
-  ToastController
+  ToastController,
+  AlertController
 } from 'ionic-angular';
 import { HerokuProvider } from './../../providers/heroku/heroku';
 
@@ -18,12 +19,18 @@ import { HerokuProvider } from './../../providers/heroku/heroku';
 export class PesquisaPage {
 
   private veiculos: Array<any>;
+  dataPost: any = {};
+
+  modelo: any;
+  placa: any;
+  renavam: any;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
+    public alertCtrl: AlertController,
     private herokuProvider: HerokuProvider) {
   }
 
@@ -59,6 +66,32 @@ export class PesquisaPage {
     );
   }
 
+  postAddVeiculo() {
+
+    this.dataPost.modelo = this.modelo;
+    this.dataPost.placa = this.placa;
+    this.dataPost.renavam = this.renavam;
+
+    let loading = this.loadingCtrl.create({
+      content: 'Adicionando veículo...',
+    });
+    loading.present();
+
+    console.log(this.dataPost);
+    this.herokuProvider.postAddVeiculo(this.dataPost).subscribe(data => {
+      console.log('resposta', data);
+      loading.dismiss();
+      this.showAlert();
+    }, error => {
+      if (error['status'] == 201) {
+        loading.dismiss();
+      }
+      else
+        console.log("Oooops!", error);
+        loading.dismiss();
+    });
+  }
+
   exibirToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
@@ -66,6 +99,26 @@ export class PesquisaPage {
       position: 'top'
     });
     toast.present();
+  }
+
+  showAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Oh Yeah!',
+      subTitle: 'Veículo incluido com sucesso.',
+      enableBackdropDismiss: false,
+      buttons: [{
+        text: 'Ok',
+        handler: () => {
+          console.log("Veículo incluido com sucesso.");
+          this.hideShowNovoVeiculo();
+          this.modelo = "";
+          this.placa = "";
+          this.renavam = "";
+          this.getVeiculos();
+        }
+      }]
+    });
+    alert.present();
   }
   
 }
