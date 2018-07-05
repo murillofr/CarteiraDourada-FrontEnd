@@ -11,10 +11,19 @@
                     <ion-icon name="flag" item-start></ion-icon>
                     Pontuação: 500
                 </ion-item>
-                <ion-item>
+                <ion-item (click)="hideShowInfracoes()">
                     <ion-icon name="alert" item-start></ion-icon>
                     Infrações: {{ qtdInfracoes }}
+                    <ion-icon name="arrow-down" item-end></ion-icon>
                 </ion-item>
+
+                <ion-list id="listInfracoes" class="hideNovoVeiculo">
+                    <ion-item color="lightgold" *ngFor="let infracao of infracoes">
+                        <ion-icon item-start></ion-icon>
+                        {{ infracao.infracaoNome }}
+                    </ion-item>
+                </ion-list>
+
                 <ion-item>
                     <ion-icon name="time" item-start></ion-icon>
                     Dias sem infrações: {{ diasSemInfracoes }}
@@ -32,11 +41,11 @@
             <ion-list>
                 <ion-item>
                     <ion-icon name="logo-usd" item-start></ion-icon>
-                    DPVAT: {{ dpvat }}% desconto
+                    DPVAT: {{ dpvat }}3% desconto
                 </ion-item>
                 <ion-item>
                     <ion-icon name="logo-usd" item-start></ion-icon>
-                    IPVA: {{ ipva }}% desconto
+                    IPVA: {{ ipva }}5% desconto
                 </ion-item>
             </ion-list>
         </ion-list>

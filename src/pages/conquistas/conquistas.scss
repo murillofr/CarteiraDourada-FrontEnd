@@ -1,3 +1,17 @@
 page-conquistas {
 
 }
+
+#listInfracoes {
+    cursor: pointer;
+}
+
+.hideInfracoes {
+    height: 0 !important;
+    transition: 0.2s linear;
+}
+
+.showInfracoes {
+    height: 100% !important;
+    transition: 0.2s linear;
+}

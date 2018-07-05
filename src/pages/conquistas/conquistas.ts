@@ -119,6 +119,11 @@ export class ConquistasPage {
     this.diasSemInfracoes = Math.floor((utc2 - utc1) / ( 1000 * 60 * 60 * 24) );
   }
 
+  hideShowInfracoes() {
+    document.getElementById("listInfracoes").classList.remove("hideNovoVeiculo");
+    document.getElementById("listInfracoes").classList.add("showInfracoes");
+  }
+
   exibirToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
