@@ -41,36 +41,43 @@ export class PerfilPage {
 
   getUserById(id) {
     let loading = this.loadingCtrl.create({
-      content: 'Buscando infos...',
+      content: 'Buscando dados pessoais...',
     });
     loading.present();
+
+    setTimeout(() => {
+      
+      this.herokuProvider.getUserById(id).subscribe(
+        data => {
+          AppModule.id = data.id;
+          AppModule.nome = data.nome;
+          AppModule.email = data.email;
+          AppModule.cnh = data.cnh;
+          AppModule.categoria = data.categoria;
   
-    this.herokuProvider.getUserById(id).subscribe(
-      data => {
-        AppModule.id = data.id;
-        AppModule.nome = data.nome;
-        AppModule.email = data.email;
-        AppModule.cnh = data.cnh;
-        AppModule.categoria = data.categoria;
+          this.id = data.id;
+          this.nome = data.nome;
+          this.email = data.email;
+          this.cnh = data.cnh;
+          this.categoria = data.categoria;
 
-        this.id = data.id;
-        this.nome = data.nome;
-        this.email = data.email;
-        this.cnh = data.cnh;
-        this.categoria = data.categoria;
+          document.getElementById("imgUsuario").style.opacity = "1";
+  
+          console.log(data);
+        },
+        err => {
+          console.log(err);
+          loading.dismiss();
+          this.exibirToast("Erro ao buscar informações do Usuário.\nTente novamente.");
+        },
+        () => {
+          loading.dismiss();
+          console.log('Infos encontradas');
+        }
+      );
 
-        console.log(data);
-      },
-      err => {
-        console.log(err);
-        loading.dismiss();
-        this.exibirToast("Erro ao buscar infos do Usuário.\nTente novamente.");
-      },
-      () => {
-        loading.dismiss();
-        console.log('Infos encontradas');
-      }
-    );
+    }, 1500);
+
   }
 
   exibirToast(msg) {

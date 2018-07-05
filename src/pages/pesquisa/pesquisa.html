@@ -30,27 +30,30 @@
         </ion-list>
     </ion-card>
 
-    <ion-card *ngFor="let veiculo of veiculos">
-        <ion-list>
-            <ion-item-divider color="dark">
-                <ion-icon name="car" item-start></ion-icon>
-                Veículo {{ veiculo.id }}
-            </ion-item-divider>
+    <div id="cardVeiculos">
+        <ion-card class="cardVeiculos" *ngFor="let veiculo of veiculos">
             <ion-list>
-                <ion-item>
-                    <ion-icon name="aperture" item-start></ion-icon>
-                    Modelo: {{ veiculo.modelo }}
-                </ion-item>
-                <ion-item>
-                    <ion-icon name="browsers" item-start></ion-icon>
-                    Placa: {{ veiculo.placa }}
-                </ion-item>
-                <ion-item>
-                    <ion-icon name="barcode" item-start></ion-icon>
-                    Renavam: {{ veiculo.renavam }}
-                </ion-item>
+                <ion-item-divider color="dark">
+                    <ion-icon name="car" item-start></ion-icon>
+                    Veículo {{ veiculo.id }}
+                </ion-item-divider>
+                <ion-list>
+                    <ion-item>
+                        <ion-icon name="aperture" item-start></ion-icon>
+                        Modelo: {{ veiculo.modelo }}
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="browsers" item-start></ion-icon>
+                        Placa: {{ veiculo.placa }}
+                    </ion-item>
+                    <ion-item>
+                        <ion-icon name="barcode" item-start></ion-icon>
+                        Renavam: {{ veiculo.renavam }}
+                    </ion-item>
+                </ion-list>
             </ion-list>
-        </ion-list>
-    </ion-card>
+        </ion-card>
+    </div>
+
 
 </ion-content>

@@ -48,22 +48,35 @@ export class PesquisaPage {
       content: 'Buscando veículos...',
     });
     loading.present();
-  
-    this.herokuProvider.getAllVeiculos().subscribe(
-      data => {
-        this.veiculos = data;
-        console.log(data);
-      },
-      err => {
-        console.log(err);
-        loading.dismiss();
-        this.exibirToast("Erro ao buscar veiculos.\nTente novamente.");
-      },
-      () => {
-        loading.dismiss();
-        console.log('veiculos encontrados');
-      }
-    );
+
+    setTimeout(() => {
+
+      this.herokuProvider.getAllVeiculos().subscribe(
+        data => {
+          this.veiculos = data;
+          console.log(data);
+          
+          // let x = document.getElementsByClassName("cardVeiculos") as HTMLCollectionOf<HTMLElement>;
+          // console.log(x);
+          // let i;
+          // for (i = 0; i < x.length; i++) {
+          //   x[i].style.opacity = "1";
+          // }
+
+        },
+        err => {
+          console.log(err);
+          loading.dismiss();
+          this.exibirToast("Erro ao buscar veiculos.\nTente novamente.");
+        },
+        () => {
+          loading.dismiss();
+          console.log('veiculos encontrados');
+        }
+      );
+
+    }, 1500);
+
   }
 
   postAddVeiculo() {
@@ -77,19 +90,24 @@ export class PesquisaPage {
     });
     loading.present();
 
-    console.log(this.dataPost);
-    this.herokuProvider.postAddVeiculo(this.dataPost).subscribe(data => {
-      console.log('resposta', data);
-      loading.dismiss();
-      this.showAlert();
-    }, error => {
-      if (error['status'] == 201) {
+    setTimeout(() => {
+
+      console.log(this.dataPost);
+      this.herokuProvider.postAddVeiculo(this.dataPost).subscribe(data => {
+        console.log('resposta', data);
         loading.dismiss();
-      }
-      else
-        console.log("Oooops!", error);
-        loading.dismiss();
-    });
+        this.showAlert();
+      }, error => {
+        if (error['status'] == 201) {
+          loading.dismiss();
+        }
+        else
+          console.log("Oooops!", error);
+          loading.dismiss();
+      });
+
+    }, 1500);
+
   }
 
   exibirToast(msg) {

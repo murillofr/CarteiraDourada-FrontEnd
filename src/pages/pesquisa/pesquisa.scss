@@ -20,3 +20,14 @@
     height: 204px !important;
     transition: 0.2s linear;
 }
+
+#divVeiculos {
+    -webkit-transition: all 0.5s ease-in;
+    -moz-transition: all 0.5s ease-in;
+    -o-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+}
+
+.cardVeiculos {
+    opacity: 1;
+}
